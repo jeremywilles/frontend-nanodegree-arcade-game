@@ -7,7 +7,7 @@ var Enemy = function(x,y) {
     // a helper we've provided to easily load images
     this.x = x;
     this.y = y;
-    this.speed = Math.random() * 10 + 20;
+    this.speed = Math.random() * 70 + 30;
     this.sprite = 'images/enemy-bug.png';
 }
 
@@ -36,7 +36,35 @@ var Player = function(x,y){
     this.sprite = 'images/char-boy.png';
 }
 
-Player.prototype.update = function(dt){
+Player.prototype.update = function(){
+
+    
+    if (this.move === 'up' && (this.y-90)>0){
+        
+        this.y -= 90;
+        this.move = '';
+        //console.log(this.y);
+    }
+    if (this.move === 'down' && (this.y+90)<410){
+        
+        this.y += 90;
+        this.move = '';
+        console.log(this.y);
+    }
+    if (this.move === 'left' && (this.x-100)>=0){
+        
+        this.x -= 100;
+        this.move = '';
+        console.log(this.x);
+    }
+    if (this.move === 'right' && (this.x+100)<401){
+        
+        this.x += 100;
+        this.move = '';
+        console.log(this.x);
+    }
+
+
 
 }
 
@@ -45,7 +73,7 @@ Player.prototype.render = function(){
 }
 
 Player.prototype.handleInput = function(code){
-    
+    this.move = code;
 }
 
 // Now instantiate your objects.
@@ -55,12 +83,17 @@ Player.prototype.handleInput = function(code){
 var allEnemies = [];
 
 for(var i = 0; i<3; i++){
-    allEnemies[i] = new Enemy(10+10*i,20+20*i);
+    allEnemies[i] = new Enemy(-150,0);
 };
 
-var player = new Player(450,550);
+var player = new Player(200,400);
 
-
+function collision(){
+    allEnemies.forEach(function(enemy){
+        console.log(enemy.x);
+        console.log(enemy.x === player.x) 
+    })
+}
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {

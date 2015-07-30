@@ -80,7 +80,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        checkCollisions();
+        
     }
 
     /* This is called by the update function  and loops through all of the
@@ -95,6 +95,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        checkCollisions();
     }
 
     function checkCollisions(){
@@ -103,6 +104,12 @@ var Engine = (function(global) {
         if (d<50){
             player.x = 200;
             player.y = 400;
+            if(player.score > 0){
+                player.score -=1;
+            }
+            if(allEnemies.length > 5){
+                allEnemies.pop();
+            }
         }
     });
     }

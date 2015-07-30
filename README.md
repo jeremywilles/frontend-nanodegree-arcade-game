@@ -1,6 +1,10 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
+Basic 'Frogger' type game. 
 
-for self-checking their submission.
+Goal is to move from the start position to the water without hitting the bugs.
+
+Successfully hitting the water will increase your score by 1 and add another bug to the game loop.
+
+Hitting a bug will lower your score 1 and remove 1 bug from the game.

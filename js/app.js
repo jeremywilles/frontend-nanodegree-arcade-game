@@ -45,6 +45,7 @@ var Player = function(x,y){
 
     this.x = x;
     this.y = y;
+    this.score = 0;
     this.sprite = 'images/char-boy.png';
 };
 
@@ -53,26 +54,35 @@ var Player = function(x,y){
 
 Player.prototype.update = function(){
         
-    if (this.move === 'up' && (this.y-90)>0){
-         
-        this.y -= 90;
+    if (this.move === 'up' && (this.y-83)>-30 ){
+        if (this.y === 68){
+            this.score += 1;
+            console.log(this.score);
+            allEnemies.push(new Enemy(-150));
+            //this.x = 200;
+            //this.y = 400;
+        }
+
+        console.log(this.y);
+        this.y -= 83;
         this.move = '';
+        
                     
     }
-    if (this.move === 'down' && (this.y+90)<410){
+    if (this.move === 'down' && (this.y+83)<410){
             
-            this.y += 90;
+            this.y += 83;
             this.move = '';
     }
-    if (this.move === 'left' && (this.x-100)>=0){
-            
-            this.x -= 100;
+    if (this.move === 'left' && (this.x-101)>-10){
+            console.log(this.x);
+            this.x -= 101;
             this.move = '';
             
     }
-    if (this.move === 'right' && (this.x+100)<401){
-            
-            this.x += 100;
+    if (this.move === 'right' && (this.x+101)<404){
+            console.log(this.x);
+            this.x += 101;
             this.move = '';
     }
     
@@ -93,6 +103,7 @@ Player.prototype.handleInput = function(code){
 
 
 var allEnemies = [];
+
 
 for(var i = 0; i<4; i++){
     allEnemies[i] = new Enemy(-150);

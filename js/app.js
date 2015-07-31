@@ -59,8 +59,6 @@ Player.prototype.update = function(){
             this.score += 1;
             console.log(this.score);
             allEnemies.push(new Enemy(-150));
-            //this.x = 200;
-            //this.y = 400;
         }
 
         console.log(this.y);

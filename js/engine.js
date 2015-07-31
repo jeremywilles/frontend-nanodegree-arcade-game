@@ -28,6 +28,9 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+    ctx.font = "36pt Impact";
+    ctx.textAlign = "center";
+    ctx.strokeText("Score:"+player.score, 100, 50);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -96,6 +99,11 @@ var Engine = (function(global) {
         });
         player.update();
         checkCollisions();
+
+        
+
+        
+        
     }
 
     function checkCollisions(){
@@ -155,6 +163,8 @@ var Engine = (function(global) {
 
 
         renderEntities();
+        ctx.clearRect(0,0,200,50);
+        ctx.strokeText("Score: "+player.score, 100, 50);
     }
 
     /* This function is called by the render function and is called on each game

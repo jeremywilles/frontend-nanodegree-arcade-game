@@ -109,7 +109,7 @@ var Engine = (function(global) {
     function checkCollisions(){
         allEnemies.forEach(function(enemy){
         var d = Math.sqrt( (enemy.x-player.x)*(enemy.x-player.x) + (enemy.y-player.y)*(enemy.y-player.y) ); 
-        if (d<50){
+        if (d<65){
             player.x = 200;
             player.y = 400;
             if(player.score > 0){

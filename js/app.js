@@ -57,11 +57,11 @@ Player.prototype.update = function(){
     if (this.move === 'up' && (this.y-83)>-30 ){
         if (this.y === 68){
             this.score += 1;
-            console.log(this.score);
             allEnemies.push(new Enemy(-150));
+            this.x = 200;
+            this.y = 400;
         }
 
-        console.log(this.y);
         this.y -= 83;
         this.move = '';
         
@@ -73,13 +73,11 @@ Player.prototype.update = function(){
             this.move = '';
     }
     if (this.move === 'left' && (this.x-101)>-10){
-            console.log(this.x);
             this.x -= 101;
             this.move = '';
             
     }
     if (this.move === 'right' && (this.x+101)<404){
-            console.log(this.x);
             this.x += 101;
             this.move = '';
     }
@@ -94,6 +92,12 @@ Player.prototype.handleInput = function(code){
     this.move = code;
 };
 
+Player.prototype.reset = function(){
+    this.x = 200;
+    this.y = 400;
+    
+}
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -103,7 +107,7 @@ Player.prototype.handleInput = function(code){
 var allEnemies = [];
 
 
-for(var i = 0; i<4; i++){
+for(var i = 0; i<3; i++){
     allEnemies[i] = new Enemy(-150);
 }
 
